@@ -1,3 +1,8 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +34,7 @@
         font-size: 15px;
         font-weight: bold;
     }
-     /* The alert message box */
+
 .alertRed {
   padding: 20px;
   background-color: #f44336; /* Red */
@@ -43,7 +48,6 @@
   margin-bottom: 15px;
 }
 
-/* The close button */
 .closebtn {
   margin-left: 15px;
   color: white;
@@ -55,7 +59,6 @@
   transition: 0.3s;
 }
 
-/* When moving the mouse over the close button */
 .closebtn:hover {
   color: black;
 } 
@@ -65,15 +68,6 @@
 <div class="login-form">
     <form method="POST" action="loginHandler.php">
     <h2 class="text-center">Sign In</h2>
-        <?php
-        if (isset($_SESSION['message'])) {
-            if ($_SESSION['message'] == '1')
-                echo '<div class="alert alert-success" role="alert">' . 'Signed in succesfully' . '</div>';
-            else
-                echo '<div class="alert alert-danger" role="alert">' . $_SESSION['message'] . '</div>';
-            unset($_SESSION['retval']);
-        }
-        ?>
          <?php
             //var_dump(isset($_SESSION['message']));
             if(isset($_SESSION['message'])) {
@@ -91,7 +85,7 @@
                     ?>
                     <div class='alertRed'>
                     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                    <?php echo($_SESSION(['message'])) ?>
+                    <?php echo $_SESSION['message']; ?>
                     </div>
                     <?php
                 }

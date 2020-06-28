@@ -1,9 +1,14 @@
 <?php
 require_once('scoreService.php');
 require_once('navbar.php');
-if (isset($_POST['score']))
-    $tmpScore = $_POST['score'];
-else
+if (isset($_SESSION['score'])) {
+    echo 'score';var_dump($_SESSION['score']);
+    $tmpScore = $_SESSION['score'];
+    unset($_SESSION['score']);
+} else if (isset($_SESSION['highestScore'])) {
+    $tmpScore = $_SESSION['highestScore'];
+    echo 'hscore';var_dump($_SESSION['highestScore']);
+} else
     $tmpScore = 0;
 $ss = new ScoreService();
 $stmt = $ss->GetScores($tmpScore);

@@ -28,10 +28,13 @@ require_once('navbar.php');
         Score: 20
     </div>
     <div style="text-align:center; width:10%;margin:30px auto;">
-        <form action="POST" action="score.php">
-            <input type="text" id="score" name="score" style="visibility: hidden;"></input>
-            <button type="submit" class="btn btn-warning" id="finished" style="visibility: hidden;">Scoreboard</button>
-        </form>
+        <!--<form action="score.php" method="post">
+            <input type="text" id="score" name="score" style="visibility: hidden;"></input>-->
+            <?php
+            $_SESSION['score'] ="<script>document.writeln(finalScore);</script>";
+            ?>
+            <button type="button" class="btn btn-warning" id="finished" style="visibility: hidden;" onclick="window.location.href='../score.php'">Scoreboard</button>
+        <!--</form>-->
     </div>
 </div>
 </body>

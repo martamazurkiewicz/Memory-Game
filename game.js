@@ -17,7 +17,8 @@ async function Uncover(id) {
             document.getElementById(id).disabled = true;
             if (uncoveredNum == 10) {
                 document.getElementById("finished").style.visibility = "visible";
-                document.getElementById("score").innerHTML = score;
+                //document.getElementById("score").innerHTML = score;
+                var finalScore = score;
                 alert("You won!");
             }
         }

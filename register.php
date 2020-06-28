@@ -1,3 +1,8 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -72,7 +77,7 @@
             ?>
                 <div class='alert'>
                     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                    <?php echo ($_SESSION['message']) ?>
+                    <?php echo ($_SESSION['message']); ?>
                 </div>
             <?php
                 unset($_SESSION['message']);
