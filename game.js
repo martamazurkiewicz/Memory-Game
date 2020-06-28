@@ -12,9 +12,12 @@ async function Uncover(id) {
             score++;
             uncoveredNum++;
             uncoveredButton.style.visibility = "hidden";
+            uncoveredButton.disabled = true;
             document.getElementById(id).style.visibility = "hidden";
+            document.getElementById(id).disabled = true;
             if (uncoveredNum == 10) {
                 document.getElementById("finished").style.visibility = "visible";
+                document.getElementById("score").innerHTML = score;
                 alert("You won!");
             }
         }
@@ -27,10 +30,12 @@ async function Uncover(id) {
             image.style.visibility = "hidden";
         }
         tempUncoveredNum = 0;
+        
     }
     else {
         uncoveredButton = document.getElementById(id);
         uncoveredButton.disabled = true;
     }
+    document.getElementById("scoreDiv").innerHTML = "Score: "+score;
 }
 

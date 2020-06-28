@@ -5,7 +5,7 @@ require_once('navbar.php');
 
 ?>
 <div class="game">
-    <table id="board">
+    <table>
         <tbody>
             <?php
             $i = 0;
@@ -24,8 +24,14 @@ require_once('navbar.php');
             ?>
         </tbody>
     </table>
-    <div class="score">
-    <button type="button" class="btn btn-warning" id="finished" style="visibility: hidden;">Score board</button>
+    <div id="scoreDiv" style="text-align:center;">
+        Score: 20
+    </div>
+    <div style="text-align:center;">
+        <form action="POST" action="score.php">
+            <input type="text" id="score" name="score" style="visibility: hidden;"></input>
+            <button type="submit" class="btn btn-warning" id="finished" style="visibility: hidden;">Scoreboard</button>
+        </form>
     </div>
 </div>
 </body>
