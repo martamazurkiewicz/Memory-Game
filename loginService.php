@@ -7,7 +7,7 @@ class LoginService
         $db = new Database();
         $conn = $db->connectToDatabse();
         $username = htmlspecialchars(strip_tags($username));
-        $stmt = $conn->prepare("SELECT * FROM users WHERE username=:username");
+        $stmt = $conn->prepare("SELECT * FROM users WHERE userName=:username");
         $stmt->bindParam(':username', $username);
         if ($stmt->execute()) {
             if ($stmt->rowCount() != 1) 
