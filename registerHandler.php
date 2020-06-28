@@ -1,15 +1,19 @@
 <?php 
-require 'registerService.php';
 session_start();
-if(new RegisterService($_POST['userName'], $_POST['password'])==1)
+require 'registerService.php';
+$rs = new RegisterService();
+$username = $_POST['username'];
+$password = $_POST['password'];
+$retval = $rs->Register($username, $password);
+if($retval==1)
 {
-    $_SESSION['retval'] = 'User succesfully registered';
-    header('Location: '.'login.php');
-    die();
+    $_SESSION['message'] = '1';
+    header('Location: '.'../login.php');
+    exit();
 }
 else
 {
-    $_SESSION['retval'] = 'Username already exists';
-    header('Location: '.'register.php');
-    die();
+    $_SESSION['message'] = 'Username already exists';
+    header('Location: '.'../register.php');
+    exit();
 }

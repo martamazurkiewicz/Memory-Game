@@ -1,5 +1,5 @@
 <?php
-require 'config/Database.php';
+require '/config/Database.php';
 class ScoreService
 {
     function __constructor($tmpScore)
