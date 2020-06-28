@@ -25,7 +25,7 @@
                 <a class="nav-link" href="/game.php">New game</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/score.php">Score board</a>
+                <a class="nav-link" href="/score.php">Scoreboard</a>
             </li>
         </ul>
         <span class="navbar-text">

@@ -1,7 +1,10 @@
 <?php
 require_once('scoreService.php');
 require_once('navbar.php');
-$tmpScore = $_POST['score'];
+if (isset($_POST['score']))
+    $tmpScore = $_POST['score'];
+else
+    $tmpScore = 0;
 $ss = new ScoreService();
 $stmt = $ss->GetScores($tmpScore);
 ?>
