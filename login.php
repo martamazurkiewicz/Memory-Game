@@ -100,7 +100,7 @@ if (session_status() == PHP_SESSION_NONE) {
             ?>
                     <div class='alertGreen'>
                         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                        Signed in succesfully
+                        Signed up succesfully
                     </div>
                 <?php
                 } else {
