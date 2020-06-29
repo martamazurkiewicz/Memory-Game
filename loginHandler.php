@@ -2,18 +2,15 @@
 require 'loginService.php';
 session_start();
 $ls = new LoginService();
-$username = $_POST['username'];
-$password = $_POST['password'];
-$retval = $ls->Login($username, $password);
+$retval = $ls->Login($_POST['username'], $_POST['password']);
 if($retval==1)
 {
-    $_SESSION['retval'] = '1';
+    $_SESSION['message'] = '1';
     header('Location: '.'../index.php');
-    die();
+    exit();
 }
 else
 {
-    $_SESSION['retval'] = 'Invalid login or password';
+    $_SESSION['message'] = 'Invalid login or password';
     header('Location: '.'../login.php');
-    die();
 }

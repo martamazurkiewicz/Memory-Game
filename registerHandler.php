@@ -1,10 +1,8 @@
 <?php 
 session_start();
-require 'registerService.php';
+require_once('registerService.php');
 $rs = new RegisterService();
-$username = $_POST['username'];
-$password = $_POST['password'];
-$retval = $rs->Register($username, $password);
+$retval = $rs->Register($_POST['username'], $_POST['password']);
 if($retval==1)
 {
     $_SESSION['message'] = '1';
@@ -15,5 +13,4 @@ else
 {
     $_SESSION['message'] = 'Username already exists';
     header('Location: '.'../register.php');
-    exit();
 }

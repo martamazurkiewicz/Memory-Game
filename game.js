@@ -1,5 +1,5 @@
 var tempUncoveredNum = 0;
-var uncoveredNum = 0;
+var pairs = 0;
 var uncoveredButton;
 var score = 20;
 
@@ -10,16 +10,13 @@ async function Uncover(id) {
     if (tempUncoveredNum == 2) {
         if (uncoveredButton.children[0].name == image.name && uncoveredButton.id != id) {
             score++;
-            uncoveredNum++;
+            pairs++;
             uncoveredButton.style.visibility = "hidden";
             uncoveredButton.disabled = true;
             document.getElementById(id).style.visibility = "hidden";
             document.getElementById(id).disabled = true;
-            if (uncoveredNum == 10) {
-                document.getElementById("finished").style.visibility = "visible";
-                document.getElementById("score").innerHTML = score;
-                alert("You won!");
-            }
+            if (pairs == 10)
+                Finish()
         }
         else {
             score--;
@@ -30,12 +27,20 @@ async function Uncover(id) {
             image.style.visibility = "hidden";
         }
         tempUncoveredNum = 0;
-        
+
     }
     else {
         uncoveredButton = document.getElementById(id);
         uncoveredButton.disabled = true;
     }
-    document.getElementById("scoreDiv").innerHTML = "Score: "+score;
+    if (pairs != 10) {
+        document.getElementById("scoreDiv").innerHTML = "Score: " + score;
+    }
+}
+async function Finish() {
+    var elem = document.getElementById("scoreInput");
+    elem.value = score;
+    document.getElementById("finished").style.visibility = "visible";
+    alert("You won!");
 }
 

@@ -1,9 +1,8 @@
 <?php
 require_once('scoreService.php');
 require_once('navbar.php');
-$tmpScore = $_POST['score'];
 $ss = new ScoreService();
-$stmt = $ss->GetScores($tmpScore);
+$query = $ss->GetScore();
 ?>
 <div style="text-align:center;">
     <h2>Scoreboard</h2>
@@ -16,9 +15,9 @@ $stmt = $ss->GetScores($tmpScore);
         </thead>
         <tbody>
             <?php
-            foreach ($stmt as $row) {
+            for($i = 0; $i<count($query[0]); $i++){ 
                 echo '<tr>';
-                echo '<td>' . $row['userName'] . '</td><td>' . $row['highestScore'] . '</td>';
+                echo '<td>' . $query[0][$i] . '</td><td>' . $query[1][$i]. '</td>';
                 echo '</tr>';
             }
             ?>
