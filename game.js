@@ -33,7 +33,7 @@ async function Uncover(id) {
         uncoveredButton = document.getElementById(id);
         uncoveredButton.disabled = true;
     }
-    if (pairs != 10) {
+    if (pairs <= 10) {
         document.getElementById("scoreDiv").innerHTML = "Score: " + score;
     }
 }
